@@ -3,12 +3,8 @@ assembly-informational-format: '{NuGetVersion}'
 mode: ContinuousDeployment
 tag-prefix: '[vV]'
 next-version: 0.2.0
-major-version-bump-message: '\+semver:\s?(breaking|major)'
-minor-version-bump-message: '\+semver:\s?(feature|minor)'
-patch-version-bump-message: '\+semver:\s?(fix|patch)'
 legacy-semver-padding: 4
 build-metadata-padding: 4
-commit-message-incrementing: Enabled
 branches:
   master:
     mode: ContinuousDeployment
