@@ -10,6 +10,7 @@ namespace SemanticVersioning.Core
             throw new System.NotImplementedException();
         }
 
+        //Do nothing more
         public Task DoSomethingMore()
         {
             throw new System.NotImplementedException();
