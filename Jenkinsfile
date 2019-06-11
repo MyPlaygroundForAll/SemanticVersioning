@@ -1,5 +1,20 @@
+def versioningInformation
+
 pipeline {
   agent any
+  parameters {
+        string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
+
+        text(name: 'BIOGRAPHY', defaultValue: '', description: 'Enter some information about the person')
+
+        booleanParam(name: 'TOGGLE', defaultValue: true, description: 'Toggle this value')
+
+        choice(name: 'CHOICE', choices: ['One', 'Two', 'Three'], description: 'Pick something')
+
+        password(name: 'PASSWORD', defaultValue: 'SECRET', description: 'Enter a password')
+
+        file(name: "FILE", description: "Choose a file to upload")
+  }
   stages {
     stage('Checkout Branch') {
       steps {
@@ -17,8 +32,10 @@ pipeline {
 		}
 	}
 	stage('Build Project'){
+	    environment{
+	        msbuild = tool name: 'MsBuild', type: 'hudson.plugins.msbuild.MsBuildInstallation'
+	    }
 		steps {
-			def msbuild = tool name: 'MsBuild', type: 'hudson.plugins.msbuild.MsBuildInstallation'
 			bat "\"${msbuild}\" SemanticVersioning.sln /p:Configuration=Release"
 		}
 	}
@@ -32,10 +49,16 @@ pipeline {
             PANGEA_NUGET_KEY = credentials('Pangea_Nuget_Private_Key')
         }
         steps {
-            def versionOutput = readJSON text: (bat(script: '@echo off && C:\\GitVersion\\GitVersion.exe /output json', returnStdout: true))
-            print versionOutput.NugetVersion
+            script {
+               versionOutput = readJSON text: (bat(script: '@echo off && C:\\GitVersion\\GitVersion.exe /output json', returnStdout: true))
+            }
             bat("C:\\NugetCLI\\NuGet.exe push SemanticVersioning.Core.${versionOutput.NuGetVersion}.nupkg ${PANGEA_NUGET_KEY} -Source http://pangeanuget.com/nuget")
         }
+    }
+  }
+  post { 
+    always { 
+        echo 'Test Always!'
     }
   }
 }
