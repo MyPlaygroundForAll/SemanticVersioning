@@ -2,7 +2,7 @@ assembly-versioning-scheme: MajorMinorPatch
 assembly-informational-format: '{NuGetVersion}'
 mode: ContinuousDeployment
 tag-prefix: '[vV]'
-continuous-delivery-fallback-tag: ci
+next-version: 0.2.0
 major-version-bump-message: '\+semver:\s?(breaking|major)'
 minor-version-bump-message: '\+semver:\s?(feature|minor)'
 patch-version-bump-message: '\+semver:\s?(fix|patch)'
@@ -12,7 +12,6 @@ commit-message-incrementing: Enabled
 branches:
   master:
     mode: ContinuousDeployment
-    tag: 
     increment: Patch
     prevent-increment-of-merged-branch-version: true
     track-merge-target: false
