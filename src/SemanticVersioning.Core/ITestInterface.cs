@@ -6,6 +6,7 @@ namespace SemanticVersioning.Core
     {
         Task DoSomething();
 
+        //Test
         Task DoSomethingMore();
     }
 }
