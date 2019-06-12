@@ -1,16 +1,21 @@
 assembly-versioning-scheme: MajorMinorPatch
 assembly-informational-format: '{NuGetVersion}'
-continuous-delivery-fallback-tag: ''
-mode: ContinuousDelivery
+mode: ContinuousDeployment
 tag-prefix: '[vV]'
+continuous-delivery-fallback-tag: ci
+major-version-bump-message: '\+semver:\s?(breaking|major)'
+minor-version-bump-message: '\+semver:\s?(feature|minor)'
+patch-version-bump-message: '\+semver:\s?(fix|patch)'
+legacy-semver-padding: 4
+build-metadata-padding: 4
+commit-message-incrementing: Enabled
 branches:
   master:
-    mode: ContinuousDelivery
-    tag: ''
+    mode: ContinuousDeployment
+    tag: s
     increment: Patch
     prevent-increment-of-merged-branch-version: true
     track-merge-target: false
-    regex: master
   release:
     mode: ContinuousDeployment
     tag: rc
@@ -40,13 +45,6 @@ branches:
     prevent-increment-of-merged-branch-version: false
     track-merge-target: false
     regex: hotfix(es)?[/-]
-  support:
-    mode: ContinuousDeployment
-    tag: s
-    increment: Patch
-    prevent-increment-of-merged-branch-version: true
-    track-merge-target: false
-    regex: support[/-]
   develop:
     mode: ContinuousDeployment
     tag: b
@@ -54,5 +52,3 @@ branches:
     prevent-increment-of-merged-branch-version: false
     track-merge-target: true
     regex: dev(elop)?(ment)?$
-ignore:
-  sha: []
