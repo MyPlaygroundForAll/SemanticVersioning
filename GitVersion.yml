@@ -1,7 +1,7 @@
 assembly-versioning-scheme: MajorMinorPatch
 assembly-informational-format: '{NuGetVersion}'
 continuous-delivery-fallback-tag: ''
-mode: ContinuousDeployment
+mode: ContinuousDelivery
 tag-prefix: '[vV]'
 branches:
   master:
