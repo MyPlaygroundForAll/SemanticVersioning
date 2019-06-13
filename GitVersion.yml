@@ -1,10 +1,5 @@
 assembly-versioning-scheme: MajorMinorPatch
 mode: ContinuousDelivery
-branches:
-  develop:
-    mode: ContinuousDeployment
-    tag: alpha
-  release:
-    tag: rc
+branches: {}
 ignore:
   sha: []
