@@ -1,7 +1,8 @@
 assembly-versioning-scheme: MajorMinorPatch
-mode: ContinuousDeployment
+mode: ContinuousDelivery
 branches:
   develop:
+    mode: ContinuousDeployment
     tag: alpha
   release:
     tag: rc
