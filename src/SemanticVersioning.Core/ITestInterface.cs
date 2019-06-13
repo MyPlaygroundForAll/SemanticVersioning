@@ -4,7 +4,7 @@ namespace SemanticVersioning.Core
 {
     public interface ITestInterface
     {
-        //sads
+        //sad
         Task DoSomething();
 
         //Tkk
