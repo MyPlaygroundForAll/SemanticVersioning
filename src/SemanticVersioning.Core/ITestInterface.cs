@@ -7,7 +7,7 @@ namespace SemanticVersioning.Core
         //sadsa
         Task DoSomething();
 
-        //Test
+        //Tes
         Task DoSomethingMore();
     }
 }
