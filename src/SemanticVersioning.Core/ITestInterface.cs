@@ -7,7 +7,7 @@ namespace SemanticVersioning.Core
         //sads
         Task DoSomething();
 
-        //Tes
+        //T
         Task DoSomethingMore();
     }
 }
