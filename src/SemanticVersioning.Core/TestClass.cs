@@ -10,7 +10,7 @@ namespace SemanticVersioning.Core
             throw new System.NotImplementedException();
         }
 
-        //Do nothing more safdsad
+        //Do nothing more
         public Task DoSomethingMore()
         {
             throw new System.NotImplementedException();
