@@ -4,6 +4,7 @@ namespace SemanticVersioning.Core
 {
     public interface ITestInterface
     {
+        //sadsa
         Task DoSomething();
 
         //Test
